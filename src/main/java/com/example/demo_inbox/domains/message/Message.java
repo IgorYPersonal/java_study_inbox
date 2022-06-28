@@ -1,10 +1,12 @@
 package com.example.demo_inbox.domains.message;
 
 import com.example.demo_inbox.domains.user.User;
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
+@Data
 public class Message {
 
     @Id
@@ -19,7 +21,6 @@ public class Message {
     @JoinColumn(name="recipient_id", referencedColumnName = "id")
     private User recipient;
 
-
     @Enumerated(EnumType.STRING)
     @Column
     private MessageStatus status;
@@ -29,52 +30,4 @@ public class Message {
 
     @Column
     private String message;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getSender() {
-        return sender;
-    }
-
-    public void setSender(User sender) {
-        this.sender = sender;
-    }
-
-    public User getRecipient() {
-        return recipient;
-    }
-
-    public void setRecipient(User recipient) {
-        this.recipient = recipient;
-    }
-
-    public MessageStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(MessageStatus status) {
-        this.status = status;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

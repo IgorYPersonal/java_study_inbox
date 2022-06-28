@@ -10,6 +10,7 @@ public class InboxController {
 
     @GetMapping
     public String base() {
+
         return "inbox/list";
     }
 }
